@@ -15,7 +15,7 @@ const api = axios.create({
 api.interceptors.response.use(
   response => {
     if (response.status !== 200 && response.status !== 201) {
-      alert(response.data)
+      alert(response.data.error)
     }
 
     return response

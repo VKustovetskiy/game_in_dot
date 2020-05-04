@@ -86,7 +86,7 @@ export default {
     },
 
     cutNameLength (val) {
-      let validVal = val
+      let validVal = val.replace(/^\s/, '')
 
       if (val.length > 25) {
         validVal = val.split('').slice(0, val.length - 1).join('')
