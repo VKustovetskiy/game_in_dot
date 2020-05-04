@@ -82,8 +82,6 @@ export default {
         this.setCellClass(target, 'player')
         this.checkWinner()
       }
-
-      return
     },
 
     handleAiIterationWin (target) {
@@ -177,6 +175,15 @@ export default {
       }
     },
 
+    getRandomAvailableRowId (fieldSize) {
+      let rowId = null
+  
+      while (rowId === null || this.emptyRowIdList.includes(rowId)) {
+        rowId = this.getRandomIndexInRange(fieldSize)
+      }
+        
+      return rowId
+    },
 
     setEmptyRowId (id) {
       this.emptyRowIdList.push(id)
@@ -201,18 +208,7 @@ export default {
 
     toggleFieldForcedRender () {
       this.forcedRenderFlag = !this.forcedRenderFlag
-    },
-
-    getRandomAvailableRowId (fieldSize) {
-      let rowId = null
-
-      while (rowId === null || this.emptyRowIdList.includes(rowId)) {
-        rowId = this.getRandomIndexInRange(fieldSize)
-      }
-      
-      return rowId
-    },
-
+    }
   },
 
   beforeDestroy() {

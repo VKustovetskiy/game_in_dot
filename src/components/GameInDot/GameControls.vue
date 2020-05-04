@@ -100,10 +100,6 @@ export default {
 
 <style lang="scss">
   .game {
-    &-input {
-      display: flex;
-    }
-
     &-button {
       min-width: 95px;
       max-height: 40px;

@@ -37,7 +37,7 @@ import GameControls from '@/components/GameInDot/GameControls'
 import PlayingField from '@/components/GameInDot/PlayingField'
 import GameLeaderBoard from '@/components/GameInDot/GameLeaderBoard'
 
-import { convertDate } from '../utils'
+import { convertDate } from '@/utils'
 
 export default {
   name: 'GameInDot',
@@ -76,7 +76,6 @@ export default {
     handleStartGame (gameConfig) {
       const { mode, name } = gameConfig
 
-      // this.toogleFieldForcedRender()
       this.setUserName(name)
       this.setGameMod(mode)
       this.toogleGameState(true)
@@ -90,7 +89,7 @@ export default {
         date
       })
       this.setWinnerName(winnerName)
-      this.buttonName = 'play again'
+      this.setButtonName('play again')
       this.toogleGameState(false)
     },
 
@@ -106,16 +105,16 @@ export default {
       this.winner = name
     }, 
 
+    setButtonName (name) {
+      this.buttonName = name
+    },
+
     resetWinner () {
       this.winner = ''
     },
 
     toogleGameState (state) {
       this.shouldGameStart = state
-    },
-
-    toogleFieldForcedRender () {
-      this.forcedRenderFlag = !this.forcedRenderFlag
     },
 
     async init () {
@@ -129,15 +128,16 @@ export default {
 
 <style lang="scss">
 .game {
+  min-height: 100vh;
   padding: 15px;
 
   &-playing-section {
-    padding: 35px;
+    padding: 35px 0;
     border: 1px solid #ddd;
   }
 
   &-leader-section {
-    padding: 35px;
+    padding: 35px 0;
     border: 1px solid #ddd;
   }
 

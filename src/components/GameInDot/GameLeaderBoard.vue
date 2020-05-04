@@ -41,8 +41,7 @@ export default {
 
   &-list {
     display: flex;
-    justify-content: center;
-    flex-flow: column wrap;
+    flex-direction: column;
     padding: 10px 0;
   }
 
@@ -52,7 +51,8 @@ export default {
     border-radius: 3px;
     background-color: #e2edf3;
     margin: 3px 0;
-    max-width: 350px;
+    width: 100%;
+    max-width: 380px;
     color: #6c757d;
     font-weight: 500;
     font-size: 18px;
@@ -63,12 +63,36 @@ export default {
 
   &-name {
     display: flex;
-    padding: 15px;
+    padding: 20px;
+    width: 50%;
+    overflow: hidden;
   }
 
   &-date {
     display: flex;
-    padding: 15px;
+    padding: 20px;
+    width: 50%;
+    overflow: hidden;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .leader {
+    &-board {
+      padding: 0 15px;
+    }
+    &-list {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media all and (max-width: 991px) {
+  .leader {
+    &-board {
+      text-align: center;
+    }
   }
 }
 </style>
