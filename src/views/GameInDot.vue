@@ -6,6 +6,7 @@
         <GameControls
           :mode-list="getModeNameList"
           :btn-name="buttonName"
+          :disabled="shouldGameStart"
           @start-game="handleStartGame"/>
       </div>
 

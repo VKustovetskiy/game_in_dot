@@ -6,6 +6,7 @@
         <b-form-select
           v-model="formData.mode"
           :plain="true"
+          :disabled="disabled"
           required
           class="game-select btn btn-info">
 
@@ -26,6 +27,7 @@
         <b-form-input
           v-model.trim="formData.name"
           :formatter="cutNameLength"
+          :disabled="disabled"
           required
           placeholder="Enter your name"></b-form-input>
       </div>
@@ -33,6 +35,7 @@
       <div class="d-flex">
         <b-button
           type="submit"
+          :disabled="disabled"
           class="game-button">
           {{ btnName }}
         </b-button>
@@ -68,6 +71,10 @@ export default {
     btnName: {
       type: String,
       default: 'play'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
